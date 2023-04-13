@@ -49,13 +49,12 @@ def Get(userName):
     #print('유저 blitz 최고 기록 :',LBdict['blitz'])
 
     #리그 기록
-    LBdict['league']['played']=userInfo_json['data']['user']['league']['gamesplayed']
+    LBdict['league']['playeds']=userInfo_json['data']['user']['league']['gamesplayed']
     LBdict['league']['wins']=userInfo_json['data']['user']['league']['gameswon']
     LBdict['league']['rank']=userInfo_json['data']['user']['league']['rank']
     #print('유저 리그 기록\n  플레이한 게임 : %s\n  이긴 게임 : %s\n  랭크 : %s'%(LBdict['league']['played'],LBdict['league']['wins'],LBdict['league']['rank']))
 
     return(LBdict)
-
 
 
 
