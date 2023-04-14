@@ -1,12 +1,38 @@
 {
-    "numOfUser":"1",
-    "1":{
-        "name":" ",
-        "s_ID":" ",
-        "nick":" ",
-        "_40L":" ",
-        "blitz":" ",
-        "rank":" "
-    }
-
+    "1": {
+        "_40L": "",
+        "blitz": "",
+        "name": "",
+        "nick": "",
+        "rank": ""
+    },
+    "2": {
+        "_40L": "null",
+        "blitz": "null",
+        "name": "이정훈",
+        "nick": "jobabjejoon",
+        "rank": "z"
+    },
+    "3": {
+        "_40L": "144",
+        "blitz": "8741",
+        "name": "유채호",
+        "nick": "gonge1018",
+        "rank": "z"
+    },
+    "4": {
+        "_40L": "115",
+        "blitz": "15856",
+        "name": "박찬규",
+        "nick": "chankyu",
+        "rank": "b"
+    },
+    "5": {
+        "_40L": "98",
+        "blitz": "null",
+        "name": "나제준",
+        "nick": "jejoon",
+        "rank": "b-"
+    },
+    "numOfUser": "5"
 }

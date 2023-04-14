@@ -1,12 +1,13 @@
 import discord
 from discord.ext import commands
-import GetUserLB
+import GetUserLB#테트리오 API를 사용하여 사용자 정보를 받아오기
+import userDB_manage#DB 관리하기
 
 token=open("token.txt","r").readline()
+game=discord.Game(' )help 입력')
+bot = commands.Bot(command_prefix=')',intents=discord.Intents.all(),activity=game)
 
-bot = commands.Bot(command_prefix=')',intents=discord.Intents.all())
-
-def LBsend(username):
+def lbSend(username):#리더보드를 임베드로 반환
     dict = GetUserLB.Get(username)
     if(dict=='no user'):
         embed= discord.Embed(title='유저를 찾을 수 없습니다')
@@ -27,14 +28,22 @@ def LBsend(username):
 async def on_ready():
     print(f'We have logged in as {bot.user}')
 
-@bot.command()
+@bot.command()#리더보드 leaderboard
 async def lb(ctx, arg):
-    await ctx.send(embed=LBsend(arg))
+    await ctx.send(embed=lbSend(arg))
 
-@bot.command()
-async def rg(ctx,arg):
-    if(arg=='40L'):
-        await ctx.send('asdf')
+@bot.command()#DB 업로드 register
+async def rg(ctx,arg,arg2):
+    check=userDB_manage.AddUser((arg,arg2))
+    if(check=='no user'):
+        await ctx.send('유저가 없습니다.')
+    else:
+        await ctx.send('사용자 정보가 DB에 업로드 되었습니다')
+
+# @bot.command()
+# async def help(ctx)
+
+
 
 
 
