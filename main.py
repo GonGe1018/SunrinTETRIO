@@ -28,7 +28,14 @@ async def on_ready():
     print(f'We have logged in as {bot.user}')
 
 @bot.command()
-async def LB(ctx, arg):
+async def lb(ctx, arg):
     await ctx.send(embed=LBsend(arg))
+
+@bot.command()
+async def rg(ctx,arg):
+    if(arg=='40L'):
+        await ctx.send('asdf')
+
+
 
 bot.run(token)
