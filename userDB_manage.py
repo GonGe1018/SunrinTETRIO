@@ -14,7 +14,7 @@ def AddUser(student_info):#student_info(사용자 이름, 닉네임)
     if(lb=='no user'):
         return('no user')
     
-    userDB=open(file='userDB.json',mode='r',encoding="UTF-8").read()#json파일 가져와서 딕셔너리로 변환
+    userDB=open(file='./DB/userDB.json',mode='r',encoding="UTF-8").read()#json파일 가져와서 딕셔너리로 변환
     dict = json.loads(userDB)
 
     numOfUser=int(dict["numOfUser"])#딕셔너리 추가 
@@ -29,7 +29,7 @@ def AddUser(student_info):#student_info(사용자 이름, 닉네임)
     numOfUser += 1
 
     _json = json.dumps(dict, indent = 4, sort_keys = True, ensure_ascii = False)#딕셔너리에서 json으로 변환
-    newFile = open('userDB.json', 'w',encoding="UTF-8")#저장
+    newFile = open('./DB/userDB.json', 'w',encoding="UTF-8")#저장
     newFile.write(_json)
     newFile.close
     
