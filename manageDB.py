@@ -41,7 +41,7 @@ def updateDB():
 
     numOfUser=int(dict['numOfUser'])
     for i in range(1, numOfUser+1):
-        print(dict[str(i)])
+        #print(dict[str(i)])
         try:
             lb=GetLB.Get(dict[str(i)]['nick'])#리더보드 가져오기
             if(lb=='no user'):

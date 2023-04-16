@@ -1,9 +1,51 @@
 {
     "1": {
-        "_40L": "128",
+        "_40L": "116",
+        "blitz": "17367",
+        "name": "김민수",
+        "nick": "alstn1012",
+        "rank": "c+"
+    },
+    "10": {
+        "_40L": "149",
         "blitz": "null",
-        "name": "null",
-        "nick": "null",
+        "name": "서주환",
+        "nick": "seojh",
+        "rank": "z"
+    },
+    "11": {
+        "_40L": "116",
+        "blitz": "null",
+        "name": "박선후",
+        "nick": "starlas",
+        "rank": "c"
+    },
+    "12": {
+        "_40L": "103",
+        "blitz": "null",
+        "name": "김도형",
+        "nick": "jjangjejoon",
+        "rank": "c+"
+    },
+    "13": {
+        "_40L": "150",
+        "blitz": "15272",
+        "name": "김주성",
+        "nick": "wntjd_612",
+        "rank": "z"
+    },
+    "14": {
+        "_40L": "65",
+        "blitz": "59760",
+        "name": "주현명",
+        "nick": "wugusaud77",
+        "rank": "a-"
+    },
+    "15": {
+        "_40L": "93",
+        "blitz": "null",
+        "name": "박진우",
+        "nick": "jinwoopark",
         "rank": "z"
     },
     "2": {
@@ -14,7 +56,7 @@
         "rank": "z"
     },
     "3": {
-        "_40L": "144",
+        "_40L": "138",
         "blitz": "8741",
         "name": "유채호",
         "nick": "gonge1018",
@@ -62,5 +104,5 @@
         "nick": "5-23",
         "rank": "b+"
     },
-    "numOfUser": "9"
+    "numOfUser": "15"
 }

@@ -13,7 +13,8 @@ def Get(userName):
             'playeds':'',
             'wins':'',
             'rank':''    
-        }
+        },
+        '_id':''
     }
     r = requests.get('https://ch.tetr.io/api/users/'+userName)
     html = r.text
@@ -54,6 +55,7 @@ def Get(userName):
     LBdict['league']['rank']=userInfo_json['data']['user']['league']['rank']
     #print('유저 리그 기록\n  플레이한 게임 : %s\n  이긴 게임 : %s\n  랭크 : %s'%(LBdict['league']['played'],LBdict['league']['wins'],LBdict['league']['rank']))
 
+    LBdict['_id']=userInfo_json['data']['user']['_id']
     return(LBdict)
 
 
