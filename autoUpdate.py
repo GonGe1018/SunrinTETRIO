@@ -3,6 +3,8 @@ import schedule
 import manageDB
 import time
 
+manageDB.updateDB()
+manageDB.updateRank()
 
 def _updateDB():
     manageDB.updateDB()

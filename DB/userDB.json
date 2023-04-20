@@ -1,10 +1,10 @@
 {
     "1": {
-        "_40L": "116",
-        "blitz": "17367",
+        "_40L": "111",
+        "blitz": "25770",
         "name": "김민수",
         "nick": "alstn1012",
-        "rank": "c+"
+        "rank": "b-"
     },
     "10": {
         "_40L": "149",
@@ -14,42 +14,42 @@
         "rank": "z"
     },
     "11": {
-        "_40L": "116",
+        "_40L": "109",
         "blitz": "null",
         "name": "박선후",
         "nick": "starlas",
         "rank": "c"
     },
     "12": {
-        "_40L": "103",
+        "_40L": "81",
         "blitz": "null",
         "name": "김도형",
         "nick": "jjangjejoon",
         "rank": "c+"
     },
     "13": {
-        "_40L": "150",
+        "_40L": "139",
         "blitz": "15272",
         "name": "김주성",
         "nick": "wntjd_612",
         "rank": "z"
     },
     "14": {
-        "_40L": "65",
+        "_40L": "59",
         "blitz": "59760",
         "name": "주현명",
         "nick": "wugusaud77",
         "rank": "a-"
     },
     "15": {
-        "_40L": "93",
+        "_40L": "76",
         "blitz": "null",
         "name": "박진우",
         "nick": "jinwoopark",
         "rank": "z"
     },
     "2": {
-        "_40L": "null",
+        "_40L": "93",
         "blitz": "null",
         "name": "이정훈",
         "nick": "jobabjejoon",
@@ -70,11 +70,11 @@
         "rank": "b"
     },
     "5": {
-        "_40L": "98",
+        "_40L": "86",
         "blitz": "null",
         "name": "나제준",
         "nick": "jejoon",
-        "rank": "b-"
+        "rank": "b"
     },
     "6": {
         "_40L": "148",
@@ -84,7 +84,7 @@
         "rank": "z"
     },
     "7": {
-        "_40L": "158",
+        "_40L": "129",
         "blitz": "null",
         "name": "이정훈",
         "nick": "jejoonoverthehil",
@@ -98,8 +98,8 @@
         "rank": "z"
     },
     "9": {
-        "_40L": "97",
-        "blitz": "45592",
+        "_40L": "87",
+        "blitz": "67346",
         "name": "유한별",
         "nick": "5-23",
         "rank": "b+"
