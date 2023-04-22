@@ -16,11 +16,11 @@ def Get(userName):
         },
         '_id':''
     }
-    r = requests.get('https://ch.tetr.io/api/users/'+userName)
+    r = requests.get('https://ch.tetr.io/api/users/'+userName.lower())
     html = r.text
     userInfo_json=json.loads(html)
 
-    r = requests.get('https://ch.tetr.io/api/users/'+userName+'/records')
+    r = requests.get('https://ch.tetr.io/api/users/'+userName.lower()+'/records')
     html = r.text
     userRecord_json=json.loads(html)
 

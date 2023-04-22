@@ -4,10 +4,10 @@
         "blitz": "25770",
         "name": "김민수",
         "nick": "alstn1012",
-        "rank": "b-"
+        "rank": "c+"
     },
     "10": {
-        "_40L": "149",
+        "_40L": "136",
         "blitz": "null",
         "name": "서주환",
         "nick": "seojh",
@@ -36,7 +36,7 @@
     },
     "14": {
         "_40L": "59",
-        "blitz": "59760",
+        "blitz": "69290",
         "name": "주현명",
         "nick": "wugusaud77",
         "rank": "a-"
@@ -46,6 +46,20 @@
         "blitz": "null",
         "name": "박진우",
         "nick": "jinwoopark",
+        "rank": "z"
+    },
+    "16": {
+        "_40L": "44",
+        "blitz": "45093",
+        "name": "Dou",
+        "nick": "dou_nk",
+        "rank": "a"
+    },
+    "17": {
+        "_40L": "93",
+        "blitz": "14228",
+        "name": "이하람",
+        "nick": "raram",
         "rank": "z"
     },
     "2": {
@@ -102,7 +116,7 @@
         "blitz": "67346",
         "name": "유한별",
         "nick": "5-23",
-        "rank": "b+"
+        "rank": "a-"
     },
-    "numOfUser": "15"
+    "numOfUser": "17"
 }
