@@ -67,7 +67,7 @@ def updateRank():
         record=_dict[str(i)]['_40L']
 
         if(_dict[str(i)]['_40L']=='null'):
-            record=1234
+            record=9999
         _40dict[str(i)]=int(record)
 
     _dict=dict(sorted(_40dict.items(), key=lambda x:x[1]))

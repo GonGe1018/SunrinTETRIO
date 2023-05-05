@@ -1,4 +1,7 @@
 import discord
+from discord.ui import Button, View
+from discord.ext import commands
+from discord.utils import get
 import json
 from discord.ext import commands
 import GetLB#테트리오 API를 사용하여 사용자 정보를 받아오기
@@ -34,26 +37,22 @@ def helpSend():
     embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/1096103445024485488/1096103529506164867/logo.png")
     embed.add_field(name='`)추가 [사용자 이름] [게임 닉네임]`', value='DB에 사용자 정보를 업로드 합니다', inline=False)
     embed.add_field(name='`)리더보드 [게임 닉네임]`', value='게임 리더보드를 간략화하여 출력합니다', inline=False)
-    embed.add_field(name='`)순위`', value='선린고의 학생들의 40L기록을 순위로 나열하여 출력 합니다', inline=False)
+    embed.add_field(name='`)순위 [페이지 번호(기본:1)]`', value='선린고의 학생들의 40L기록을 순위로 나열하여 출력 합니다', inline=False)
 
     return(embed)
 
-def rankSend():
+def rankSend(pageNum):
     userDB=open(file='./DB/userDB.json',mode='r',encoding="UTF-8").read()
     _dict = json.loads(userDB)
     rankLi=manageDB.updateRank()
-    embed = discord.Embed(title='선린인고 학생들의 40L 순위입니다. (1위~5위)',color=discord.Color.blue())
+    embed = discord.Embed(title='선린인고 학생들의 40L 순위입니다.',color=discord.Color.blue())
     
-    for i in range(0,len(rankLi)):
-        if(i==5):
-            break
+    for i in range(pageNum*5,pageNum*5+5):
         userCode=rankLi[i][0]
         userRecord=rankLi[i][1]
         embed.add_field(name=str(i+1)+'위', value=_dict[userCode]['name']+'('+_dict[userCode]['nick']+') '+str(userRecord//60)+'분'+str(userRecord%60)+'초', inline=False)
     
     return(embed)
-
-
 
 @bot.event
 async def on_ready():
@@ -75,13 +74,21 @@ async def 추가(ctx,arg,arg2):
         await ctx.send('사용자 정보가 DB에 업로드 되었습니다')
 
 @bot.command()
-async def 순위(ctx):
+async def 순위(ctx,arg=0):
+    try:
+        if(int(arg)<=0):
+            pageNum=0
+        else:
+            pageNum=int(arg)-1
+    except:
+        pageNum=0
 
-    await ctx.send(embed=rankSend())
+    await ctx.send(embed=rankSend(pageNum))
 
 @bot.command()
 async def 도움(ctx):
     await ctx.send(embed=helpSend())
+
 
 
 bot.run(token)
