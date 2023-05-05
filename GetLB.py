@@ -1,7 +1,6 @@
 import requests
 import json
 
-
 def Get(userName):
     LBdict = {
         'name':'',
@@ -57,6 +56,3 @@ def Get(userName):
 
     LBdict['_id']=userInfo_json['data']['user']['_id']
     return(LBdict)
-
-
-

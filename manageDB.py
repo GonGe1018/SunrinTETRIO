@@ -1,20 +1,23 @@
 import json
-import schedule
 import GetLB
+from datetime import datetime
+
+
+
 
 def AddUser(student_info):#student_info(사용자 이름, 닉네임)
     lb=GetLB.Get(student_info[1])#리더보드 가져오기
     if(lb=='no user'):
         return('no user')
     
-    userDB=open(file='./DB/userDB.json',mode='r',encoding="UTF-8").read()#json파일 가져와서 딕셔너리로 변환
+    userDB=open(file='./DB/userData.json',mode='r',encoding="UTF-8").read()#json파일 가져와서 딕셔너리로 변환
     dict = json.loads(userDB)
 
     numOfUser=int(dict["numOfUser"])
    
     for i in range(1,numOfUser+1):#만약 중복이 있으면 
         if(dict[str(i)]['nick']==student_info[1]):
-            print('사용자명:',student_info[1],' 중복 확인')
+            print(datetime.now(),'사용자명:',student_info[1],' 추가 도중 중복 확인')
             return('overlap user')
 
     #딕셔너리 추가 
@@ -29,14 +32,14 @@ def AddUser(student_info):#student_info(사용자 이름, 닉네임)
     numOfUser += 1
 
     _json = json.dumps(dict, indent = 4, sort_keys = True, ensure_ascii = False)#딕셔너리에서 json으로 변환
-    newFile = open('./DB/userDB.json', 'w',encoding="UTF-8")#저장
+    newFile = open('./DB/userData.json', 'w',encoding="UTF-8")#저장
     newFile.write(_json)
     newFile.close
 
-    print('사용자명:',student_info[1],'이 DB에 추가 되었습니다')
+    print(datetime.now(),'사용자명:',student_info[1],'이 DB에 추가 되었습니다')
 
 def updateDB():
-    userDB=open(file='./DB/userDB.json',mode='r',encoding="UTF-8").read()#json파일 가져와서 딕셔너리로 변환
+    userDB=open(file='./DB/userData.json',mode='r',encoding="UTF-8").read()#json파일 가져와서 딕셔너리로 변환
     dict = json.loads(userDB)
 
     numOfUser=int(dict['numOfUser'])
@@ -53,14 +56,14 @@ def updateDB():
             pass
 
     _json = json.dumps(dict, indent = 4, sort_keys = True, ensure_ascii = False)#딕셔너리에서 json으로 변환
-    newFile = open('./DB/userDB.json', 'w',encoding="UTF-8")#저장
+    newFile = open('./DB/userData.json', 'w',encoding="UTF-8")#저장
     newFile.write(_json)
     newFile.close
 
-    print('유저 정보DB가 업데이트 되었습니다.')
+    print(datetime.now(),'유저 정보가 업데이트 되었습니다.')
 
 def updateRank():
-    userDB=open(file='./DB/userDB.json',mode='r',encoding="UTF-8").read()#json파일 가져와서 딕셔너리로 변환
+    userDB=open(file='./DB/userData.json',mode='r',encoding="UTF-8").read()#json파일 가져와서 딕셔너리로 변환
     _dict = json.loads(userDB)
     _40dict={}
     for i in range(1,int(_dict['numOfUser'])+1):
@@ -74,10 +77,10 @@ def updateRank():
     #print(_dict)
 
     _json = json.dumps(_dict, indent = 4, ensure_ascii = False)#딕셔너리에서 json으로 변환
-    newFile = open('./DB/rankingDB.json', 'w',encoding="UTF-8")#저장
+    newFile = open('./DB/rankingData.json', 'w',encoding="UTF-8")#저장
     newFile.write(_json)
     newFile.close
-    print('랭크DB가 업데이트 되었습니다.')
+    print(datetime.now(),'랭크가 업데이트 되었습니다.')
 
     return(list(_dict.items()))
 

@@ -1,18 +1,18 @@
 import discord
-from discord.ui import Button, View
+from datetime import datetime
 from discord.ext import commands
 from discord.utils import get
 import json
 from discord.ext import commands
-import GetLB#테트리오 API를 사용하여 사용자 정보를 받아오기
-import manageDB#DB 관리하기
+import manageDB#DB 관리하기, 테트리오 API를 사용하여 사용자 정보를 받아오기
+import GetLB
 import requests
 
 token=open("token.txt","r").readline()
 game=discord.Game(' )도움 입력')
 bot = commands.Bot(command_prefix=')',intents=discord.Intents.all(),activity=game)
 
-def lbSend(username, ctx):#리더보드를 임베드로 반환
+def lbSend(username):#리더보드를 임베드로 반환
     _dict = GetLB.Get(username)
     if(_dict=='no user'):
         embed= discord.Embed(title='유저를 찾을 수 없습니다')
@@ -42,7 +42,7 @@ def helpSend():
     return(embed)
 
 def rankSend(pageNum):
-    userDB=open(file='./DB/userDB.json',mode='r',encoding="UTF-8").read()
+    userDB=open(file='./DB/userData.json',mode='r',encoding="UTF-8").read()
     _dict = json.loads(userDB)
     rankLi=manageDB.updateRank()
     embed = discord.Embed(title='선린인고 학생들의 40L 순위입니다.',color=discord.Color.blue())
@@ -50,6 +50,8 @@ def rankSend(pageNum):
     for i in range(pageNum*5,pageNum*5+5):
         userCode=rankLi[i][0]
         userRecord=rankLi[i][1]
+        if(userRecord==9999):
+            break
         embed.add_field(name=str(i+1)+'위', value=_dict[userCode]['name']+'('+_dict[userCode]['nick']+') '+str(userRecord//60)+'분'+str(userRecord%60)+'초', inline=False)
     
     return(embed)
@@ -60,11 +62,12 @@ async def on_ready():
 
 @bot.command()#리더보드 leaderboard
 async def 리더보드(ctx, arg):
-
-    await ctx.send(embed=lbSend(arg, ctx))
+    print(datetime.now().strftime,ctx.author,'가',ctx.guild,'에서 리더보드를 사용 ')
+    await ctx.send(embed=lbSend(arg))
 
 @bot.command()#DB 업로드 register
 async def 추가(ctx,arg,arg2):
+    print(datetime.now(),ctx.author,'가',ctx.guild,'에서 추가를 사용 ')
     check=manageDB.AddUser((arg,arg2.lower()))
     if(check=='no user'):
         await ctx.send('유저가 없습니다.')
@@ -75,6 +78,7 @@ async def 추가(ctx,arg,arg2):
 
 @bot.command()
 async def 순위(ctx,arg=0):
+    print(datetime.now(),ctx.author,'가',ctx.guild,'에서 순위를 사용 ')
     try:
         if(int(arg)<=0):
             pageNum=0
@@ -87,6 +91,7 @@ async def 순위(ctx,arg=0):
 
 @bot.command()
 async def 도움(ctx):
+    print(datetime.now(),ctx.author,'가',ctx.guild,'에서 도움을 사용 ')
     await ctx.send(embed=helpSend())
 
 

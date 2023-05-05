@@ -1,4 +1,4 @@
 token.txt
-rankingDB.json
-userDB.json
+rankingData.json
+userData.json
 test.py
